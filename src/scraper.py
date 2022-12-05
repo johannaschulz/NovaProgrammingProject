@@ -93,7 +93,7 @@ class WCHistoricScoresScraper:
       col1 = table.find('th', class_=self.col1_class).get_text()
       col2 = table.find('th', class_=self.col2_class).get_text()
       col3 = table.find('th', class_=self.col3_class).get_text()
-      data.append({'col1': col1, 'col2': col2, 'col3': col3})
+      data.append({'col1': col1, 'col2': col2, 'col3': col3, 'year': year})
     return cleanDataframe(pd.DataFrame(data))
 
   def getAllData(self, years: list) -> pd.DataFrame:
