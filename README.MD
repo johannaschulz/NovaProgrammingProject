@@ -6,7 +6,7 @@ We were asked to come up with a project idea and implement it in Python.
 
 ## Project Idea
 With the World Cup 2022 in Qatar beeing a big topic in the moment we write this, we wanted to create a tool that allows to predict the winner.
-Instead of using fancy machine learning algorithms, we decided to use a simple algorithm in form of a poisson distribution to calculate the probability of a team winning a match. To do so we used the world cup data from all matches played starting from 1930.
+Instead of using fancy machine learning algorithms, we decided to use a simple algorithm in form of a poisson distribution to calculate the probability of a team winning a match. To do so we used the world cup data from all matches played starting from 1930..
 
 ## Project Structure
 The project is structured as follows:
