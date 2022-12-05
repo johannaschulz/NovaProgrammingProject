@@ -1,45 +1,22 @@
 # Project Class "Introduction to Programming", Wintersemester 2022 Nova SBE
 
-## Project Description
-The aim of this project is to implement a prediction algorithm to predict the winner of the world cup 2022 using python.
+As part of the course "Introduction to Programming" we learned the basics of programming in Python. 
+This repository holds the final project of the course.
+We were asked to come up with a project idea and implement it in Python.
 
-Class: Introduction to Programming
-Team Members: Johanna Schulz, Daniel Weiss, 
-
-
-### Description of world cup prediction
-
-The prediction algorithm is based data of historic FIFA world cup data. Therefore, the prediction is based on the 21 game results between 1930 and 2018. The data is provided by the FIFA website. The data is stored in a csv file. The data is structured as follows:
-
-We use information about whether the team played at their home or away and how many scores they achieved. 
-
-Because not all teams played the same number of games in the 21 FIFA worldcups, we decided to use the average of the scores of the teams.
-
-#### The prediction algorithm is based on the following assumptions:
-1. The probability of winning a game is conditional on the number of goals scored by the team in a world cup game in the past years. There is no information used about recent players or the current form of the teams.
-2. 
-
-
-We will only make a prediction (probability based) about the particular winner for the FIFA worldcup 2022 in Qatar. No predictions about the other games will be made or about the number of goals scored by the teams.
-
-
-
+## Project Idea
+With the World Cup 2022 in Qatar beeing a big topic in the moment we write this, we wanted to create a tool that allows to predict the winner.
+Instead of using fancy machine learning algorithms, we decided to use a simple algorithm in form of a poisson distribution to calculate the probability of a team winning a match. To do so we used the world cup data from all matches played starting from 1930.
 
 ## Project Structure
 The project is structured as follows:
-
 ```
 .
 ├── README.md
 ├── data
-│   ├── 2018.csv
-│   ├── 2018.xlsx
-│   ├── 2022.csv
-│   ├── 2022.xlsx
-│   ├── 2026.csv
-│   ├── 2026.xlsx
+│   ├── _.csv
 ├── notebooks
-│   ├── 2018.ipynb
+│   ├── Web_Crawler_Worldcup_data.ipynb
 ├── src
 │   ├── __init__.py
 │   ├── __pycache__
