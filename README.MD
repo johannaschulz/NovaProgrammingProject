@@ -1,10 +1,29 @@
-# Programming Project Nova SBE 2022
+# Project Class "Introduction to Programming", Wintersemester 2022 Nova SBE
 
-## Project Describtion
+## Project Description
 The aim of this project is to implement a prediction algorithm to predict the winner of the world cup 2022 using python.
 
-Class: SBE 2022
-Team Members: 
+Class: Introduction to Programming
+Team Members: Johanna Schulz, Daniel Weiss, 
+
+
+### Description of world cup prediction
+
+The prediction algorithm is based data of historic FIFA world cup data. Therefore, the prediction is based on the 21 game results between 1930 and 2018. The data is provided by the FIFA website. The data is stored in a csv file. The data is structured as follows:
+
+We use information about whether the team played at their home or away and how many scores they achieved. 
+
+Because not all teams played the same number of games in the 21 FIFA worldcups, we decided to use the average of the scores of the teams.
+
+#### The prediction algorithm is based on the following assumptions:
+1. The probability of winning a game is conditional on the number of goals scored by the team in a world cup game in the past years. There is no information used about recent players or the current form of the teams.
+2. 
+
+
+We will only make a prediction (probability based) about the particular winner for the FIFA worldcup 2022 in Qatar. No predictions about the other games will be made or about the number of goals scored by the teams.
+
+
+
 
 ## Project Structure
 The project is structured as follows:
