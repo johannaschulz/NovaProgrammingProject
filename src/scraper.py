@@ -171,7 +171,7 @@ class CurrentWCScrapper:
   This class is used to scrape data from the current world cup
   """
 
-  def __init__(self, year = 2022: int) -> None:
+  def __init__(self, year:int = 2022, group_order: list[str] = None) -> None:
     """
     Initialize the class
 
@@ -184,6 +184,88 @@ class CurrentWCScrapper:
     -------
     None
     """
+    if (group_order == None):
+      self.group_order = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+    else:
+      self.group_order = group_order
 
+    self.year = year
+
+    self.fStringWebpage = f'https://en.wikipedia.org/wiki/<year>_FIFA_World_Cup'
+
+  def getWebpage(self, year: int) -> str:
+    """
+    This method is used to get the webpage of the year
+    """
+    return self.fStringWebpage.replace('<year>', str(year))
+
+  def getSoup(self, year: int) -> BeautifulSoup:
+    """
+    This method is used to get the soup of the year
+
+    Parameters
+    ----------
+    year: int
+      The year to get the soup from
+
+    Returns
+    -------
+    BeautifulSoup
+      The soup of the year :D
+    """
+    return BeautifulSoup(requests.get(self.getWebpage(year)).text, 'html.parser')
+
+  def getTables(self, year: int) -> BeautifulSoup:
+    """
+    This method is used to get the table of the year
+
+    Parameters
+    ----------
+    year: int
+      The year to get the tables from
+
+    Returns
+    -------
+    BeautifulSoupTables
+      The table of the year
+    """
+    all_matches = self.getSoup(year).find_all('table', class_='wikitable')
+    #only keep the tables with the position
+    all_matches = [table for table in all_matches if table.find('abbr', text='Pos')]
+    return all_matches
+  
+  def createDictTable(self, year: int) -> dict[pd.DataFrame]:
+    """
+    This method is used to create a dictionary with the tables of the year
+
+    Parameters
+    ----------
+    year: int
+      The year to get the tables from
+
+    Returns
+    -------
+    dict[pd.DataFrame]
+      The dictionary with the group tables of the year
+    """
+    all_tables = self.getTables(year)
+    assert len(all_tables) == len(self.group_order), 'The number of tables is not equal to the number of groups'
+
+    dict_tables = {}
+    for i in range(len(all_tables)):
+      try:
+        df = pd.read_html(str(all_tables[i]))[0]
+      except:
+        print(f'Error: table {i} ({self.group_order[i]}) could not be converted to a dataframe')
+      #rename the second column to team
+      df.rename(columns={df.columns[1]: 'Team'}, inplace=True)
+      dict_tables[self.group_order[i]] = df
+
+    return dict_tables
+
+
+
+
+  
 
   

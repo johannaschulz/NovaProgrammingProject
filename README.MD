@@ -6,21 +6,21 @@ We were asked to come up with a project idea and implement it in Python.
 
 ## Project Idea
 With the World Cup 2022 in Qatar beeing a big topic in the moment we write this, we wanted to create a tool that allows to predict the winner.
-Instead of using fancy machine learning algorithms, we decided to use a simple algorithm in form of a poisson distribution to calculate the probability of a team winning a match. To do so we used the world cup data from all matches played starting from 1930..
+Instead of using fancy machine learning algorithms, we decided to use a simple algorithm in form of a poisson distribution to calculate the probability of a team winning a match. To do so we used the world cup data from all matches played starting from 1930.
 
 ## Project Structure
 The project is structured as follows:
 ```
 .
 ├── README.md
-├── data
-│   ├── _.csv
 ├── notebooks
 │   ├── Web_Crawler_Worldcup_data.ipynb
+│   ├── World_Cup_Data_Analysis.ipynb
 ├── src
 │   ├── __init__.py
-│   ├── __pycache__
-│   │   ├── __init__.cpython-38.pyc
+│   ├── main.py
+│   ├── analyser.py
+│   ├── scraper.py
 ```
 
 ## Installation
@@ -32,6 +32,13 @@ To install the project, clone the repository and install the requirements using 
 git clone
 cd
 pip install -r requirements.txt
+```
+
+## Run the project
+To run the project, run the following command:
+
+```bash
+python src/main.py
 ```
 
 ### Packages used
