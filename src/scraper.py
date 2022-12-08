@@ -171,7 +171,7 @@ class CurrentWCScrapper:
   This class is used to scrape data from the current world cup
   """
 
-  def __init__(self, year:int = 2022, group_order: list[str] = None) -> None:
+  def __init__(self, year:int = 2022, group_order: list = None) -> None:
     """
     Initialize the class
 
